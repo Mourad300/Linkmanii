@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق عرض الإعلانات</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>تطبيق عرض الإعلانات</h1>
+        </header>
+        <!-- مكان لظهور الإعلانات -->
+        <div id="ad-container" class="hidden">
+            <a href="https://kuthoost.net/4/7412718" target="_blank">إعلان 1</a>
+            <a href="https://sauptowhy.com/4/7412721" target="_blank">إعلان 2</a>
+            <a href="https://oudsutch.com/4/7412719" target="_blank">إعلان 3</a>
+            <a href="https://lemsoodol.com/4/7412691" target="_blank">إعلان 4</a>
+            <a href="https://ufiledsit.com/4/7412720" target="_blank">إعلان 5</a>
+        </div>
+        <footer>
+            <p>© 2024 تطوير بواسطة ChatGPT</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* تصميم الصفحة */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+header, footer {
+    text-align: center;
+    margin-bottom: 20px;
+}
+footer p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* تنسيقات الإعلانات */
+.hidden {
+    display: none;
+}
+.visible {
+    display: block;
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+#ad-container a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+    padding: 5px;
+}
+// جعل الإعلانات تظهر وتختفي بشكل تلقائي
+window.onload = function() {
+    var adContainer = document.getElementById('ad-container');
+    setTimeout(function() {
+        adContainer.classList.remove('hidden');
+        adContainer.classList.add('visible');
+        setTimeout(function() {
+            adContainer.classList.remove('visible');
+            adContainer.classList.add('hidden');
+            // إعادة العرض بعد 60 ثانية
+            setTimeout(function() {
+                adContainer.classList.remove('hidden');
+                adContainer.classList.add('visible');
+            }, 60000); // إخفاء الإعلان بعد 60 ثانية
+        }, 20000); // الإعلان يظهر لمدة 20 ثانية
+    }, 1000); // الإعلان يظهر بعد 1 ثانية من تحميل الصفحة
+};
